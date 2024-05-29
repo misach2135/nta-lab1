@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,37 +10,31 @@ namespace lab1
         static void Main(string[] args)
         {
             NumberShredder ns = new NumberShredder();
-            Console.WriteLine("GCD: " + MathUtils.GCD(62677181, 62808347));
-            Console.WriteLine(ns.PrimeTest(7442109405582674149));
 
-            //Console.WriteLine(MathUtils.PowMod(, 10, 62677181));
-            /*
-            long x = 1;
-            long n = long.MaxValue - 10;
-            List<long> factors = [];
-            Console.WriteLine("Number: " + n);
-            while (true)
+            long num = 17873;
+
+            Console.WriteLine("Number: {0}", num);
+
+            BitMatrix matrix = new(new bool[,]
             {
-                x = ns.TrialDivisions(n);
-                n /= x;
-                if (x == 1)
-                {
-                    factors.Add(n);
-                    break;
-                }
-                factors.Add(x);
-            }
+                {true, true, false, false },
+                {true, true, false, true },
+                {false, true, true, true },
+                { false, false, true, false},
+                { false, false, false, true}
+            });
 
-            long res = 1;
+            Console.WriteLine(matrix);
 
-            foreach (var i in factors)
-            {
-                res *= i;
-                Console.WriteLine("Factors: " + i + ", ");
-            }
+            SortedSet<int> list = [];
 
-            Console.WriteLine("Result: " + res);
-            */
+            Console.WriteLine(matrix);
+
+            Console.WriteLine(string.Join(',', list));
+            
+            Console.WriteLine(NumberShredder.BrilhartMorrison(num));
+
         }
+
     }
 }
