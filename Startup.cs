@@ -11,7 +11,7 @@ namespace lab1
         {
             NumberShredder ns = new NumberShredder();
 
-            long num = 116575056184735007;
+            long num = 9073;
 
             Console.WriteLine("Number: {0}", num);
 
@@ -33,6 +33,8 @@ namespace lab1
             //Console.WriteLine(matrix);
 
             //Console.WriteLine(string.Join(',', list));
+
+            // Console.WriteLine(NumberShredder.RhoMethod(num, (x, n) => { return MathUtils.Mod(x * x + 1, n); }));
             
             Console.WriteLine(NumberShredder.BrilhartMorrison(num));
 

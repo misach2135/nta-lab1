@@ -139,8 +139,8 @@ namespace lab1
                             if (data[i, t])
                             {
                                 CombineCols(t, j);
-                                Console.WriteLine("Added column {0} to {1}", j, t);
-                                Console.WriteLine(this);
+                                //Console.WriteLine("Added column {0} to {1}", j, t);
+                                //Console.WriteLine(this);
                             }
                         }
                         break;
@@ -157,8 +157,8 @@ namespace lab1
             SortedSet<int> markedRows;
             RowReduction(out markedRows);
 
-            Console.WriteLine("Searching solution");
-            Console.WriteLine("Marked rows(determined): {0}", string.Join(',', markedRows));
+            // Console.WriteLine("Searching solution");
+            // Console.WriteLine("Marked rows(determined): {0}", string.Join(',', markedRows));
 
             List<int> unmarkedRows = [];
 
@@ -168,7 +168,7 @@ namespace lab1
                 unmarkedRows.Add(i);
             }
 
-            Console.WriteLine("Marked rows(undetermined): {0}", string.Join(',', unmarkedRows));
+            // Console.WriteLine("Marked rows(undetermined): {0}", string.Join(',', unmarkedRows));
 
             foreach (var e in unmarkedRows)
             {

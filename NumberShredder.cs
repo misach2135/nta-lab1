@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.IO;
 using System.Threading.Tasks;
+using System.Numerics;
 
 namespace lab1
 {
@@ -51,7 +52,6 @@ namespace lab1
             return 1;
         }
 
-        // TODO: 3. from metodichka(theoreticly, this shit could not be working properly)
         public static long RhoMethod(long n, Func<long, long, long> f)
         {
             long x = 2;
@@ -71,10 +71,11 @@ namespace lab1
 
         public static long BrilhartMorrison(long n)
         {
+
             StreamWriter sw = new("log.txt");
             Func<long, long> squareMod = x =>
             {
-                Int128 t = x * x;
+                Int128 t = (Int128)x * x;
                 x = MathUtils.Mod(t, n);
                 if (x > n / 2)
                 {
@@ -123,7 +124,7 @@ namespace lab1
 
             sw.WriteLine("Start calc b: \n\n");
 
-            for (int i = 3; i < factorBase.Count * 2; i++)
+            for (int i = 3; i < factorBase.Count * 10; i++)
             {
                 sw.WriteLine("i: {0}:  ", i);
                 v = (n - u * u) / v;
@@ -136,7 +137,7 @@ namespace lab1
                 sw.WriteLine("  a:     {0}: ", a);
                 sw.WriteLine("  u:     {0}: ", u);
 
-                long temp = MathUtils.Mod(a * bis[i - 1] + bis[i - 2], n);
+                long temp = MathUtils.Mod(a * (Int128)bis[i - 1] + (Int128)bis[i - 2], n);
 
                 sw.WriteLine("  b:     {0}: ", temp);
 
@@ -153,12 +154,8 @@ namespace lab1
 
             for (int i = 0; i < bis.Count; i++)
             {
-
                 bool[] arr = new bool[factorBase.Count];
-
                 var b = squareMod(bis[i]);
-
-                sw.WriteLine("(b^2)_{0}: {1}", i, b);
 
                 arr[0] = b < 0;
                 b = Math.Abs(b);
@@ -175,7 +172,7 @@ namespace lab1
 
                 if (b == 0)
                 {
-                    throw new Exception("CURSED SHIT!");
+                    throw new Exception("CURSED SHIT HAPPENS!");
                 }
 
                 if (b != 1)
@@ -190,9 +187,10 @@ namespace lab1
             bis.RemoveAll(x => x == 0);
 
             var matrix = new BitMatrix(factorBis);
-            
+
             Console.WriteLine("FactorBase: {0}", string.Join(',', factorBase));
             Console.WriteLine("Bis: {0}", string.Join(',', bis));
+            sw.WriteLine("Bis: {0}", string.Join(',', bis));
             Console.WriteLine(matrix);
             sw.WriteLine("Matrix: {0}", matrix);
 
@@ -202,30 +200,55 @@ namespace lab1
 
             foreach (var indexes in res)
             {
-                long X = 1;
-                long Y = 1;
-
+                Int128 X = 1;
+                BigInteger Y = 1;
+                
                 foreach (var e in indexes)
                 {
                     var b = squareMod(bis[e]);
-
                     X *= bis[e];
                     Y *= b;
-
                     X = MathUtils.Mod(X, n);
                 }
 
-                Y = (long)Math.Sqrt(Y);
+                Y = Sqrt(Y);
                 Y = MathUtils.Mod(Y, n);
 
-                if (X != Y && X != MathUtils.Mod(-Y, n))
+                if (X != (long)Y && X != MathUtils.Mod(-(long)Y, n))
                 {
-                    return MathUtils.GCD(X + Y, n);
+                    return MathUtils.GCD((long)X + (long)Y, n);
                 }
             }
 
-
             return 0;
+        }
+
+        public static BigInteger Sqrt(BigInteger value)
+        {
+            if (value < 0)
+                throw new Exception("Cannot compute square root of a negative number.");
+
+            if (value == 0)
+                return 0;
+
+            BigInteger low = 0;
+            BigInteger high = value;
+            BigInteger mid;
+
+            while (low < high)
+            {
+                mid = (low + high) / 2;
+                BigInteger midSquared = mid * mid;
+
+                if (midSquared == value)
+                    return mid;
+                else if (midSquared < value)
+                    low = mid + 1;
+                else
+                    high = mid;
+            }
+
+            return (low - 1);
         }
 
     }

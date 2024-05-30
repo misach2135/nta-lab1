@@ -6,6 +6,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Net.Cache;
 using System.Net.NetworkInformation;
+using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -31,7 +32,20 @@ namespace lab1
             {
                 a = -a * (n - 1);
             }
-            return (Int64)(a % (Int128)n);
+
+            Int128 res = a % n;
+            return (Int64)res;
+        }
+
+        public static BigInteger Mod(BigInteger a, long n)
+        {
+            if (a < 0)
+            {
+                a = -a * (n - 1);
+            }
+
+            BigInteger res = a % n;
+            return (long)res;
         }
 
         public static bool getIthBit(Int128 num, short i)
