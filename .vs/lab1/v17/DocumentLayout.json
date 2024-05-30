@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Darkinki\\source\\repos\\nta_1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5E7DD4FA-EF30-4304-B286-EEB415985B69}|lab1.csproj|c:\\users\\darkinki\\source\\repos\\nta_1\\numbershredder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E7DD4FA-EF30-4304-B286-EEB415985B69}|lab1.csproj|solutionrelative:numbershredder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "NumberShredder.cs",
+              "DocumentMoniker": "C:\\Users\\Darkinki\\source\\repos\\nta_1\\NumberShredder.cs",
+              "RelativeDocumentMoniker": "NumberShredder.cs",
+              "ToolTip": "C:\\Users\\Darkinki\\source\\repos\\nta_1\\NumberShredder.cs",
+              "RelativeToolTip": "NumberShredder.cs",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAQwDMAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-30T17:07:45.516Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

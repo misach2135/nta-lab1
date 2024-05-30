@@ -13,7 +13,7 @@ namespace lab1
     internal class NumberShredder
     {
 
-        public static bool PrimeTest(long n, int k = 1)
+        public static bool PrimeTest(long n, int k = 1) // к - ітерації, не чіпай - хата сгорить
         {
             if (n < 0) n = -n;
             if ((n == 2) || (n == 3) || (n == 5)) return true;
@@ -38,14 +38,39 @@ namespace lab1
             return 0;
         }
 
-        public static Int64[] CanonicalFactorization()
+        public static long[] CanonicalFactorization(long n, Func<long, long, long> f)
         {
-            return Array.Empty<Int64>();
+            int k = 1;
+           List<long> result = [];
+
+            if (PrimeTest(n, k) != true)
+            {
+                TrialDivisions(n);
+                while (TrialDivisions(n) != 1)
+                {
+                    result.Add(TrialDivisions(n));
+                    n /= result[result.Count - 1];
+                }
+                if (TrialDivisions(n) <= 1)
+                {
+                    result.Add(RhoMethod(n, f));
+                    n /= result[result.Count - 1];
+                    if (PrimeTest(n, k) != true)
+                    {
+                        result.Add(BrilhartMorrison(n));
+                        n /= result[result.Count - 1];
+                    }
+                    result.Add(n);
+                }
+            }
+
+            return result.ToArray();
         }
+
 
         public static Int64 TrialDivisions(Int64 n)
         {
-            for (Int64 d = 2; d < Math.Sqrt(n); d++)
+            for (Int64 d = 2; d < 47; d++)
             {
                 if (n % d == 0) return d;
             }
@@ -84,7 +109,6 @@ namespace lab1
                 return x;
             };
 
-            // Build factor base
             List<long> factorBase = [-1];
 
             sw.WriteLine("Number: {0}", n);

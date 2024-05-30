@@ -11,7 +11,7 @@ namespace lab1
         {
             NumberShredder ns = new NumberShredder();
 
-            long num = 9073;
+            long num = 1515475730401555091;
 
             Console.WriteLine("Number: {0}", num);
 
@@ -35,8 +35,13 @@ namespace lab1
             //Console.WriteLine(string.Join(',', list));
 
             // Console.WriteLine(NumberShredder.RhoMethod(num, (x, n) => { return MathUtils.Mod(x * x + 1, n); }));
-            
-            Console.WriteLine(NumberShredder.BrilhartMorrison(num));
+
+            //Console.WriteLine(NumberShredder.BrilhartMorrison(num));
+            long[] factors = NumberShredder.CanonicalFactorization(num, (x, n) => { return MathUtils.Mod(x * x + 1, n); });
+            foreach (long factor in factors)
+            {
+                Console.WriteLine(factor);
+            }
 
         }
 
