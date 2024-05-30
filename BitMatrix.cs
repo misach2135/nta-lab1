@@ -150,34 +150,47 @@ namespace lab1
         }
 
         // ATTENTION! Якщо я красивого не придумаю(а красиве у голову не лізе), то буде щось дуже огидне.
-        // TODO: MAKE THIS SHIT!!!!!!
-        public void GetAllSolutions()
+        // Повертає майже всі солюшени
+        public List<List<int>> GetAllSolutions()
         {
+            List<List<int>> res = [];
             SortedSet<int> markedRows;
             RowReduction(out markedRows);
 
-            for (int row = 0; row < RowsCount; row++)
+            Console.WriteLine("Searching solution");
+            Console.WriteLine("Marked rows(determined): {0}", string.Join(',', markedRows));
+
+            List<int> unmarkedRows = [];
+
+            for (int i = 0; i < RowsCount; i++)
             {
-                if (markedRows.Contains(row)) continue;
-                List<int> probableSolution = [row];
+                if (markedRows.Contains(i)) continue;
+                unmarkedRows.Add(i);
+            }
+
+            Console.WriteLine("Marked rows(undetermined): {0}", string.Join(',', unmarkedRows));
+
+            foreach (var e in unmarkedRows)
+            {
+                List<int> solution = [e];
                 for (int j = 0; j < ColsCount; j++)
                 {
-                    if (data[row, j])
+                    if (data[e, j])
                     {
-                        for(int i = 0; i < RowsCount; i++)
+                        foreach (int t in markedRows)
                         {
-                            if (markedRows.Contains(i) || i == row) continue;
-                            if (data[i, j])
+                            if (data[t, j])
                             {
-                                probableSolution.Add(i);
+                                solution.Add(t);
                             }
                         }
                     }
                 }
-
-                Console.WriteLine(string.Join(',', probableSolution));
-
+                res.Add(solution);
             }
+
+            return res;
+
         }
 
         public override string ToString()

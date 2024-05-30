@@ -11,26 +11,28 @@ namespace lab1
         {
             NumberShredder ns = new NumberShredder();
 
-            long num = 17873;
+            long num = 116575056184735007;
 
             Console.WriteLine("Number: {0}", num);
 
-            BitMatrix matrix = new(new bool[,]
-            {
-                {true, true, false, false },
-                {true, true, false, true },
-                {false, true, true, true },
-                { false, false, true, false},
-                { false, false, false, true}
-            });
+            //BitMatrix matrix = new(new bool[,]
+            //{
+            //    { true, true, false, false},
+            //    { true, true, false, true},
+            //    { false, true, true, true},
+            //    { false, false, true, false},
+            //    { false, false, false, true}
+            //});
 
-            Console.WriteLine(matrix);
+            //Console.WriteLine(matrix);
 
-            SortedSet<int> list = [];
+            //SortedSet<int> list = [];
 
-            Console.WriteLine(matrix);
+            //matrix.GetAllSolutions();
 
-            Console.WriteLine(string.Join(',', list));
+            //Console.WriteLine(matrix);
+
+            //Console.WriteLine(string.Join(',', list));
             
             Console.WriteLine(NumberShredder.BrilhartMorrison(num));
 
