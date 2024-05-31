@@ -5,6 +5,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{5E7DD4FA-EF30-4304-B286-EEB415985B69}|lab1.csproj|c:\\users\\darkinki\\source\\repos\\nta_1\\numbershredder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E7DD4FA-EF30-4304-B286-EEB415985B69}|lab1.csproj|solutionrelative:numbershredder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E7DD4FA-EF30-4304-B286-EEB415985B69}|lab1.csproj|c:\\users\\darkinki\\source\\repos\\nta_1\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E7DD4FA-EF30-4304-B286-EEB415985B69}|lab1.csproj|solutionrelative:startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +18,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Startup.cs",
+              "DocumentMoniker": "C:\\Users\\Darkinki\\source\\repos\\nta_1\\Startup.cs",
+              "RelativeDocumentMoniker": "Startup.cs",
+              "ToolTip": "C:\\Users\\Darkinki\\source\\repos\\nta_1\\Startup.cs",
+              "RelativeToolTip": "Startup.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAQwCgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-31T11:35:37.672Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -24,7 +41,7 @@
               "RelativeDocumentMoniker": "NumberShredder.cs",
               "ToolTip": "C:\\Users\\Darkinki\\source\\repos\\nta_1\\NumberShredder.cs",
               "RelativeToolTip": "NumberShredder.cs",
-              "ViewState": "AQIAAB8AAAAAAAAAAAAQwDMAAAAyAAAA",
+              "ViewState": "AQIAAFEAAAAAAAAAAAAgwFIAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-30T17:07:45.516Z",
               "EditorCaption": ""

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace lab1
@@ -37,6 +38,8 @@ namespace lab1
             // Console.WriteLine(NumberShredder.RhoMethod(num, (x, n) => { return MathUtils.Mod(x * x + 1, n); }));
 
             //Console.WriteLine(NumberShredder.BrilhartMorrison(num));
+
+
             long[] factors = NumberShredder.CanonicalFactorization(num, (x, n) => { return MathUtils.Mod(x * x + 1, n); });
             foreach (long factor in factors)
             {
