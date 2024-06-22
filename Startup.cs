@@ -12,7 +12,7 @@ namespace lab1
         {
             NumberShredder ns = new NumberShredder();
 
-            long num = 1515475730401555091;
+            long num = 691534156424661573;
 
             Console.WriteLine("Number: {0}", num);
 

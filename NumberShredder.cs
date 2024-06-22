@@ -46,51 +46,41 @@ namespace lab1
 
             if (PrimeTest(n, k) != true)
             {
-                Stopwatch stopWatch1 = new Stopwatch();
-                stopWatch1.Start();
+                DateTime localDate1 = DateTime.Now;
                 TrialDivisions(n);
-                stopWatch1.Stop();
-                TimeSpan ts1 = stopWatch1.Elapsed;
+                DateTime localDate2 = DateTime.Now;
+                Console.WriteLine(localDate2 - localDate1);
 
-                string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",ts1.Hours, ts1.Minutes, ts1.Seconds, ts1.Milliseconds / 10);
-                Console.WriteLine("RunTime  " + elapsedTime);
-                Stopwatch stopWatch2 = new Stopwatch();
-                stopWatch1.Start();
+                DateTime localDate3 = DateTime.Now;
+
                 while (TrialDivisions(n) != 1)
                 {
                     result.Add(TrialDivisions(n));
                     n /= result[result.Count - 1];
                 }
-                stopWatch2.Stop();
-                TimeSpan ts2 = stopWatch1.Elapsed;
+                DateTime localDate4 = DateTime.Now;
+                Console.WriteLine(localDate4- localDate3);
 
-                string elapsedTime2 = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts2.Hours, ts2.Minutes, ts2.Seconds, ts2.Milliseconds / 10);
-                Console.WriteLine("RunTime  " + elapsedTime);
                 if (TrialDivisions(n) <= 1)
                 {
-                    Stopwatch stopWatch3 = new Stopwatch();
-                    stopWatch3.Start();
+                    DateTime localDate5 = DateTime.Now;
+
                     result.Add(RhoMethod(n, f));
                     n /= result[result.Count - 1];
-                    stopWatch3.Stop();
-                    TimeSpan ts3 = stopWatch1.Elapsed;
+                    DateTime localDate6 = DateTime.Now;
+                    Console.WriteLine(localDate6 - localDate5);
 
-                    string elapsedTime3 = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts3.Hours, ts3.Minutes, ts3.Seconds, ts3.Milliseconds / 10);
-                    Console.WriteLine("RunTime  " + elapsedTime);
-                    Stopwatch stopWatch4 = new Stopwatch();
-                    stopWatch4.Start();
                     if (PrimeTest(n, k) != true)
                     {
+                        DateTime localDate7 = DateTime.Now;
 
                         result.Add(BrilhartMorrison(n));
                         n /= result[result.Count - 1];
+                        DateTime localDate8 = DateTime.Now;
+                        Console.WriteLine(localDate8 - localDate7);
                     }
-                    result.Add(n);
-                    stopWatch4.Stop();
-                    TimeSpan ts4 = stopWatch1.Elapsed;
+;
 
-                    string elapsedTime4 = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts4.Hours, ts4.Minutes, ts4.Seconds, ts4.Milliseconds / 10);
-                    Console.WriteLine("RunTime  " + elapsedTime);
                 }
             }
 
